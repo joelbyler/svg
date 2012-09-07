@@ -1,0 +1,2 @@
+class SVG
+end
