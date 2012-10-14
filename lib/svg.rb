@@ -4,31 +4,96 @@
 
 module Svg
 
-  class Feature
-    attr_accessor :stroke, :stroke_width, :fill
-    def to_svg
-      '<circle cx="1" cy="2" r="3" stroke="black" stroke-width="2" fill="red" />'
+  class RGB
+    def initialize(r=0, g=0, b=0)
+      @red = r
+      @green = g
+      @blue = b
     end
+    def red
+      @red
+    end
+    def green
+      @green
+    end
+    def blue
+      @blue
+    end
+    def to_s
+      return "rgb(#{@red},#{@green},#{@blue})"
+    end
+  end
+
+  class Style < String
+    attr_accessor :fill, :stroke, :stroke_width, :fill_opacity, :stroke_opacity
+    def to_s
+      string_val = attr_to_s 'fill', fill
+      string_val += attr_to_s 'stroke', stroke
+      string_val += attr_to_s 'stroke-width', stroke_width
+      string_val += attr_to_s 'fill-opacity', fill_opacity
+      string_val += attr_to_s 'stroke-opacity', stroke_opacity
+      if not string_val.empty?
+        string_val.strip!
+        string_val.chop!
+      end
+      return string_val
+    end
+    def attr_to_s (attr_name, attr_val)
+      return '' if attr_val.nil?
+      " #{attr_name}:#{attr_val};" if not attr_val.to_s.empty?
+    end
+  end
+
+  class Feature
+    attr_accessor :stroke, :stroke_width, :fill, :fill_opacity, :stroke_opacity, :style
+    def to_svg
+      '<overrideme/>'
+    end
+
+    def attr_to_s (attr_name, attr_val)
+      return '' if attr_val.nil? 
+      " #{attr_name}=\"#{attr_val}\"" if not attr_val.to_s.empty?
+    end
+
   end  
 
   class Circle<Feature
     attr_accessor :center_x, :center_y, :radius
     def to_svg
       "<circle cx=\"#{center_x}\" cy=\"#{center_y}\" r=\"#{radius}\" stroke=\"#{stroke}\" stroke-width=\"#{stroke_width}\" fill=\"#{fill}\" />"
+      string_val = "<circle"
+      string_val += attr_to_s 'cx', center_x
+      string_val += attr_to_s 'cy', center_y
+      string_val += attr_to_s 'r', radius
+      string_val += attr_to_s 'stroke', stroke
+      string_val += attr_to_s 'stroke-width', stroke_width
+      string_val += attr_to_s 'fill', fill
+      if not style.nil?
+        string_val += " style=\"#{style.to_s}\""
+      end
+      string_val += "/>"
+
+      return string_val
     end
   end
-  
-  #<rect width="300" height="100" style="fill:rgb(0,0,255);stroke-width:1;stroke:rgb(0,0,0)"/>
-  #<rect x="50" y="20" width="150" height="150" style="fill:blue; stroke:pink; stroke-width:5; fill-opacity:0.1; stroke-opacity:0.9"/>
-  #<rect x="50" y="20" width="150" height="150" style="fill:blue;stroke:pink;stroke-width:5;opacity:0.5"/>
-  #<rect x="50" y="20" rx="20" ry="20" width="150" height="150" style="fill:red;stroke:black;stroke-width:5;opacity:0.5"/>  
 
-  #<ellipse cx="300" cy="80" rx="100" ry="50" style="fill:yellow;stroke:purple;stroke-width:2"/>
-  #<ellipse cx="240" cy="100" rx="220" ry="30" style="fill:purple"/>
-  #<ellipse cx="220" cy="70" rx="190" ry="20" style="fill:lime"/>
-  #<ellipse cx="210" cy="45" rx="170" ry="15" style="fill:yellow"/>
-  #<ellipse cx="240" cy="50" rx="220" ry="30" style="fill:yellow"/>
-  #<ellipse cx="220" cy="50" rx="190" ry="20" style="fill:white"/>
+  class Rectangle<Feature
+    attr_accessor :top_x, :top_y, :width, :height
+    def to_svg
+      string_val = "<rect"
+      string_val += attr_to_s 'x', top_x
+      string_val += attr_to_s 'y', top_y
+      string_val += attr_to_s 'width', width
+      string_val += attr_to_s 'height', height
+      if not style.nil?
+        string_val += " style=\"#{style.to_s}\""
+      end
+      string_val += "/>"
+
+      return string_val
+    end
+
+  end
   
-  #<line x1="0" y1="0" x2="200" y2="200" style="stroke:rgb(255,0,0);stroke-width:2"/>
+
 end
