@@ -25,11 +25,12 @@ module Svg
   end
 
   class Style < String
-    attr_accessor :fill, :stroke, :stroke_width, :fill_opacity, :stroke_opacity
+    attr_accessor :fill, :stroke, :stroke_width, :opacity, :fill_opacity, :stroke_opacity
     def to_s
       string_val = attr_to_s 'fill', fill
       string_val += attr_to_s 'stroke', stroke
       string_val += attr_to_s 'stroke-width', stroke_width
+      string_val += attr_to_s 'opacity', opacity
       string_val += attr_to_s 'fill-opacity', fill_opacity
       string_val += attr_to_s 'stroke-opacity', stroke_opacity
       if not string_val.empty?
@@ -78,11 +79,13 @@ module Svg
   end
 
   class Rectangle<Feature
-    attr_accessor :top_x, :top_y, :width, :height
+    attr_accessor :top_x, :top_y, :radius_x, :radius_y, :width, :height
     def to_svg
       string_val = "<rect"
       string_val += attr_to_s 'x', top_x
       string_val += attr_to_s 'y', top_y
+      string_val += attr_to_s 'rx', radius_x
+      string_val += attr_to_s 'ry', radius_y
       string_val += attr_to_s 'width', width
       string_val += attr_to_s 'height', height
       if not style.nil?
