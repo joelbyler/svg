@@ -115,4 +115,22 @@ module Svg
       return string_val
     end
   end
+
+  class Line<Feature
+    attr_accessor :from_x, :from_y, :to_x, :to_y
+    def to_svg
+      string_val = "<line"
+      string_val += attr_to_s 'x1', from_x
+      string_val += attr_to_s 'y1', from_y
+      string_val += attr_to_s 'x2', to_x
+      string_val += attr_to_s 'y2', to_y
+
+      if not style.nil?
+        string_val += " style=\"#{style.to_s}\""
+      end
+      string_val += "/>"
+
+      return string_val
+    end
+  end
 end
