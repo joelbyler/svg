@@ -98,5 +98,21 @@ module Svg
 
   end
   
+  class Ellipse<Feature
+    attr_accessor :center_x, :center_y, :radius_x, :radius_y
+    def to_svg
+      string_val = "<ellipse"
+      string_val += attr_to_s 'cx', center_x
+      string_val += attr_to_s 'cy', center_y
+      string_val += attr_to_s 'rx', radius_x
+      string_val += attr_to_s 'ry', radius_y
 
+      if not style.nil?
+        string_val += " style=\"#{style.to_s}\""
+      end
+      string_val += "/>"
+
+      return string_val
+    end
+  end
 end

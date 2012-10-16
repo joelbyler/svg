@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 describe Svg::Rectangle do
-  #<rect x="50" y="20" rx="20" ry="20" width="150" height="150" style="fill:red;stroke:black;stroke-width:5;opacity:0.5"/>  
   
   it "should know how to create a rectangle" do
     rectangle_var = Svg::Rectangle.new
