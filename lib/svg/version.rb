@@ -1,3 +1,3 @@
-module svg
-  VERSION = "0.0.2"
+module Svg
+  VERSION = "0.0.3"
 end

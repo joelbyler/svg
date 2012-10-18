@@ -3,8 +3,7 @@ require 'spec_helper'
 describe Svg::Circle do
   it "should know how to create a circle" do
   	circle_var = Svg::Circle.new
-  	circle_var.center_x = 1
-	  circle_var.center_y = 2
+    circle_var.center = Svg::Point.new(1, 2)
   	circle_var.radius = 3
 	  circle_var.stroke = 'black'
   	circle_var.stroke_width = 2
@@ -14,8 +13,7 @@ describe Svg::Circle do
   end
   it "should know how to create aother circle" do
   	circle_var = Svg::Circle.new
-  	circle_var.center_x = 4
-	  circle_var.center_y = 8
+    circle_var.center = Svg::Point.new(4, 8)
   	circle_var.radius = 5
 	  circle_var.stroke = 'blue'
   	circle_var.stroke_width = 1

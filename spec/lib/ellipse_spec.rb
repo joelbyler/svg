@@ -5,10 +5,9 @@ describe Svg::Ellipse do
   #<ellipse cx="240" cy="50" rx="220" ry="30" style="fill:yellow"/>
   #<ellipse cx="220" cy="50" rx="190" ry="20" style="fill:white"/>
 
-  it "should be able to create a yello ellipse" do
+  it "should be able to create a yellow ellipse" do
     ellipse_var = Svg::Ellipse.new
-    ellipse_var.center_x = 300
-    ellipse_var.center_y = 100
+    ellipse_var.center = Svg::Point.new(300, 100)
     ellipse_var.radius_x = 100
     ellipse_var.radius_y = 50
 
@@ -23,8 +22,7 @@ describe Svg::Ellipse do
   end
   it "should be able to create a purple ellipse" do
     ellipse_var = Svg::Ellipse.new
-    ellipse_var.center_x = 240
-    ellipse_var.center_y = 100
+    ellipse_var.center = Svg::Point.new(240, 100)
     ellipse_var.radius_x = 220
     ellipse_var.radius_y = 30
 
@@ -37,8 +35,7 @@ describe Svg::Ellipse do
   end
   it "should be able to create a lime ellipse" do
     ellipse_var = Svg::Ellipse.new
-    ellipse_var.center_x = 220
-    ellipse_var.center_y = 70
+    ellipse_var.center = Svg::Point.new(220, 70)
     ellipse_var.radius_x = 190
     ellipse_var.radius_y = 20
 

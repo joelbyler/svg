@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    svg (0.0.2)
+    svg (0.0.3)
 
 GEM
   remote: https://rubygems.org/
@@ -54,4 +54,5 @@ DEPENDENCIES
   guard-rspec
   rake
   rb-fsevent
+  rspec (>= 2.11.0)
   svg!

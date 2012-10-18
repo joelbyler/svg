@@ -56,15 +56,20 @@ module Svg
       " #{attr_name}=\"#{attr_val}\"" if not attr_val.to_s.empty?
     end
 
+    def point_to_s (x_attr_name, y_attr_name, point)
+      return '' if point.nil? 
+      return_val = " #{x_attr_name}=\"#{point.x}\"" if not point.x.to_s.empty?
+      return_val + " #{y_attr_name}=\"#{point.y}\"" if not point.y.to_s.empty?
+    end
   end  
 
   class Circle<Feature
-    attr_accessor :center_x, :center_y, :radius
+    attr_accessor :center, :radius
     def to_svg
-      "<circle cx=\"#{center_x}\" cy=\"#{center_y}\" r=\"#{radius}\" stroke=\"#{stroke}\" stroke-width=\"#{stroke_width}\" fill=\"#{fill}\" />"
       string_val = "<circle"
-      string_val += attr_to_s 'cx', center_x
-      string_val += attr_to_s 'cy', center_y
+
+      string_val += point_to_s 'cx', 'cy', center
+
       string_val += attr_to_s 'r', radius
       string_val += attr_to_s 'stroke', stroke
       string_val += attr_to_s 'stroke-width', stroke_width
@@ -79,11 +84,12 @@ module Svg
   end
 
   class Rectangle<Feature
-    attr_accessor :top_x, :top_y, :radius_x, :radius_y, :width, :height
+    attr_accessor :top, :radius_x, :radius_y, :width, :height
     def to_svg
       string_val = "<rect"
-      string_val += attr_to_s 'x', top_x
-      string_val += attr_to_s 'y', top_y
+
+      string_val += point_to_s 'x', 'y', top
+
       string_val += attr_to_s 'rx', radius_x
       string_val += attr_to_s 'ry', radius_y
       string_val += attr_to_s 'width', width
@@ -99,11 +105,13 @@ module Svg
   end
   
   class Ellipse<Feature
-    attr_accessor :center_x, :center_y, :radius_x, :radius_y
+    attr_accessor :center, :radius_x, :radius_y
     def to_svg
       string_val = "<ellipse"
-      string_val += attr_to_s 'cx', center_x
-      string_val += attr_to_s 'cy', center_y
+
+      if not center.nil?
+        string_val += point_to_s 'cx', 'cy', center
+      end
       string_val += attr_to_s 'rx', radius_x
       string_val += attr_to_s 'ry', radius_y
 
@@ -117,13 +125,11 @@ module Svg
   end
 
   class Line<Feature
-    attr_accessor :from_x, :from_y, :to_x, :to_y
+    attr_accessor :from, :to
     def to_svg
       string_val = "<line"
-      string_val += attr_to_s 'x1', from_x
-      string_val += attr_to_s 'y1', from_y
-      string_val += attr_to_s 'x2', to_x
-      string_val += attr_to_s 'y2', to_y
+      string_val += point_to_s 'x1', 'y1', from
+      string_val += point_to_s 'x2', 'y2', to
 
       if not style.nil?
         string_val += " style=\"#{style.to_s}\""
@@ -131,6 +137,19 @@ module Svg
       string_val += "/>"
 
       return string_val
+    end
+  end
+
+  class Point
+    def initialize(x=0, y=0)
+      @x = x
+      @y = y
+    end
+    def x
+      @x
+    end
+    def y
+      @y
     end
   end
 end

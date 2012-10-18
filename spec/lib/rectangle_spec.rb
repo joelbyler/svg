@@ -19,8 +19,9 @@ describe Svg::Rectangle do
   
   it "should know how to create a square" do
     rectangle_var = Svg::Rectangle.new
-    rectangle_var.top_x = 50
-    rectangle_var.top_y = 20
+
+    rectangle_var.top = Svg::Point.new(50, 20)
+
     rectangle_var.width = 150
     rectangle_var.height = 150
 
@@ -37,8 +38,9 @@ describe Svg::Rectangle do
   end
   it "should know how to create another square" do
     rectangle_var = Svg::Rectangle.new
-    rectangle_var.top_x = 50
-    rectangle_var.top_y = 20
+
+    rectangle_var.top = Svg::Point.new(50, 20)
+
     rectangle_var.width = 150
     rectangle_var.height = 150
 
@@ -54,8 +56,9 @@ describe Svg::Rectangle do
   end 
   it "should know how to create a square with rounded corners" do
     rectangle_var = Svg::Rectangle.new
-    rectangle_var.top_x = 50
-    rectangle_var.top_y = 20
+
+    rectangle_var.top = Svg::Point.new(50, 20)
+
     rectangle_var.radius_x = 20
     rectangle_var.radius_y = 20
     rectangle_var.width = 150
