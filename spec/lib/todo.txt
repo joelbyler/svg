@@ -1,0 +1,94 @@
+#<ellipse cx="210" cy="45" rx="170" ry="15" style="fill:yellow"/>
+#<ellipse cx="240" cy="50" rx="220" ry="30" style="fill:yellow"/>
+#<ellipse cx="220" cy="50" rx="190" ry="20" style="fill:white"/>
+
+# <path d="M150 0 L75 200 L225 200 Z" />
+
+# <path id="lineAB" d="M 100 350 l 150 -300" stroke="red" stroke-width="3" fill="none" />
+# <path id="lineBC" d="M 250 50 l 150 300" stroke="red" stroke-width="3" fill="none" />
+# <path id="lineBC" d="M 175 200 l 150 0" stroke="red" stroke-width="3" fill="none" />
+# <path id="quadcurveABC" d="M 100 350 q 150 -300 300 0" stroke="blue" stroke-width="5" fill="none" />
+# <!-- Mark relevant points -->
+# <g stroke="black" stroke-width="3" fill="black">
+#   <circle id="pointA" cx="100" cy="350" r="3" />
+#   <circle id="pointB" cx="250" cy="50" r="3" />
+#   <circle id="pointC" cx="400" cy="350" r="3" />
+# </g>
+# <!-- Label the points -->
+# <g font-size="30" font="sans-serif" fill="black" stroke="none" text-anchor="middle">
+#   <text x="100" y="350" dx="-30">A</text>
+#   <text x="250" y="50" dy="-10">B</text>
+#   <text x="400" y="350" dx="30">C</text>
+# </g>
+
+# <text x="0" y="15" fill="red">I love SVG</text>
+
+# <text x="0" y="15" fill="red" transform="rotate(30 20,40)">I love SVG</text>
+  
+  # <g fill="none">
+  #   <path stroke="red" d="M5 20 l215 0" />
+  #   <path stroke="blue" d="M5 40 l215 0" />
+  #   <path stroke="black" d="M5 60 l215 0" />
+  # </g>
+
+  # <g fill="none" stroke="black">
+  #   <path stroke-width="2" d="M5 20 l215 0" />
+  #   <path stroke-width="4" d="M5 40 l215 0" />
+  #   <path stroke-width="6" d="M5 60 l215 0" />
+  # </g>
+
+  # <g fill="none" stroke="black" stroke-width="6">
+  #   <path stroke-linecap="butt" d="M5 20 l215 0" />
+  #   <path stroke-linecap="round" d="M5 40 l215 0" />
+  #   <path stroke-linecap="square" d="M5 60 l215 0" />
+  # </g>
+
+  # <g fill="none" stroke="black" stroke-width="4">
+  #   <path stroke-dasharray="5,5" d="M5 20 l215 0" />
+  #   <path stroke-dasharray="10,10" d="M5 40 l215 0" />
+  #   <path stroke-dasharray="20,10,5,5,5,10" d="M5 60 l215 0" />
+  # </g>
+
+  # <defs>
+  #   <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+  #     <stop offset="0%" style="stop-color:rgb(255,255,0);stop-opacity:1" />
+  #     <stop offset="100%" style="stop-color:rgb(255,0,0);stop-opacity:1" />
+  #   </linearGradient>
+  # </defs>
+  # <ellipse cx="200" cy="70" rx="85" ry="55" fill="url(#grad1)" />
+
+  # <defs>
+  #   <linearGradient id="grad1" x1="0%" y1="0%" x2="0%" y2="100%">
+  #     <stop offset="0%" style="stop-color:rgb(255,255,0);stop-opacity:1" />
+  #     <stop offset="100%" style="stop-color:rgb(255,0,0);stop-opacity:1" />
+  #   </linearGradient>
+  # </defs>
+  # <ellipse cx="200" cy="70" rx="85" ry="55" fill="url(#grad1)" />  
+
+  # <defs>
+  #   <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+  #     <stop offset="0%" style="stop-color:rgb(255,255,0);stop-opacity:1" />
+  #     <stop offset="100%" style="stop-color:rgb(255,0,0);stop-opacity:1" />
+  #   </linearGradient>
+  # </defs>
+  # <ellipse cx="200" cy="70" rx="85" ry="55" fill="url(#grad1)" />
+  # <text fill="#ffffff" font-size="45" font-family="Verdana" x="150" y="86">SVG</text>
+
+  # <defs>
+  #   <radialGradient id="grad1" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+  #     <stop offset="0%" style="stop-color:rgb(255,255,255);
+  #     stop-opacity:0" />
+  #     <stop offset="100%" style="stop-color:rgb(0,0,255);stop-opacity:1" />
+  #   </radialGradient>
+  # </defs>
+  # <ellipse cx="200" cy="70" rx="85" ry="55" fill="url(#grad1)" />
+
+
+  # <defs>
+  #   <radialGradient id="grad1" cx="20%" cy="30%" r="30%" fx="50%" fy="50%">
+  #     <stop offset="0%" style="stop-color:rgb(255,255,255);
+  #     stop-opacity:0" />
+  #     <stop offset="100%" style="stop-color:rgb(0,0,255);stop-opacity:1" />
+  #   </radialGradient>
+  # </defs>
+  # <ellipse cx="200" cy="70" rx="85" ry="55" fill="url(#grad1)" />  

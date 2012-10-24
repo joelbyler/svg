@@ -15,5 +15,5 @@ module Svg
       return_val = " #{x_attr_name}=\"#{point.x}\"" if not point.x.to_s.empty?
       return_val + " #{y_attr_name}=\"#{point.y}\"" if not point.y.to_s.empty?
     end
-  end
+  end  
 end
