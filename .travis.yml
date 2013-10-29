@@ -1,11 +1,15 @@
 language: ruby
 rvm:
-  - 1.9.3
-  - 2.0.0
-  - jruby-19mode
-
+- 1.9.3
+- 2.0.0
+- jruby-19mode
 after_script:
-  - bundle install
-
-after_script:
-  - bundle exec rake spec
+- bundle exec rake spec
+deploy:
+  provider: rubygems
+  api_key:
+    secure: xIyGCYbQGjT4Sev8MegZ6FyRAUf/G9L822c6CVL+CXhiuPGGTGvpxQQjsdwwYuX77QEfndNmRPn+FCbIBEPQoNxmbRnVpH4N7RW8moyRLA3uwU/VScTNDJd98n/J5pZ1xcLNp9hjXJNxRcZPpK1WfCr+Qp6KM7g2KUVlsb3J2Uc=
+  gem: svg
+  on:
+    tags: true
+    repo: joelbyler/svg
