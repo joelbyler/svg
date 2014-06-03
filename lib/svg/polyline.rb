@@ -1,6 +1,17 @@
 module Svg
   class Polyline<Feature
     attr_accessor :points
+
+    def from(x, y)
+      @points = [Point.new(x, y)]
+      self
+    end
+
+    def to(x, y)
+      @points << Point.new(x, y)
+      self
+    end
+
     def to_svg
       string_val = "<polyline points=\""
       points.each do |point|
